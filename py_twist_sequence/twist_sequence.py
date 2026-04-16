@@ -1,11 +1,8 @@
-from collections import deque
-from typing import List
-def twister(nums: List[int], n: int):
-    thislist = []
-    dq = deque(nums)
-    dq.rotate(n)
-    return list(dq)
-
+def twist_sequence(arr: list[int], k: int) -> list[int]:
+    if not arr:
+        return arr
+    k = k % len(arr)
+    return arr[-k:] + arr[:-k]
 
 ## Test ### 
 print(twister([1, 2, 3, 4, 5], 2))
