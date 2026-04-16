@@ -1,13 +1,14 @@
-from typing import List
-def cryptic_sorter(tlist: List[str]):
-    def counting(s):
-        counter = 0
-        for i in s.lower():
-            if i in "aeiou":
-                counter += 1
-        return counter
-    final_list = sorted(tlist, key=lambda s: (len(s), s.lower(), s.isupper(), counting(s)))
-    return final_list
+def cryptic_sort(strings: list[str]) -> list[str]:
+    return sorted(strings, key=lambda s: (len(s), s.lower(), sum(c in "aeiouAEIOU" for c in s)))
+
+# Example
+print(cryptic_sort(["A", "banana", "grape", "kiwi", "oArange"]))
+print(cryptic_sort(["a", "e", "b", "o", "u"]))
+print(cryptic_sort(["Arsen", "arsen", "ARSEN"]))
+print(cryptic_sort(["aaa", "AAA", "bbb", "BBB"]))
+
+
+
 
 ### Test ###
 
