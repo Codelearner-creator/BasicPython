@@ -1,14 +1,11 @@
-from typing import List
-
-def Pattern_tracker(string: str) -> int:
-    thislist = []
-    counter = 0
-    for i in range(1, len(string)):
-        if string[i].isdigit() and string[i - 1].isdigit():
-            if int(string[i]) == int(string[i - 1])  + 1:
-                counter += 1
-    return counter
-
+   def pattern_tracker(text: str) -> int:
+    count = 0
+    
+    for i in range(len(text) - 1):
+        if text[i].isdigit() and text[i+1].isdigit():
+            if int(text[i+1]) == int(text[i]) + 1:
+                count += 1    
+    return count
 
 ### Test ###
 print(Pattern_tracker("123a345"))
